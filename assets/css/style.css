@@ -1,0 +1,178 @@
+:root {
+    --primary-color: #2563eb;    /* Azul profesional */
+    --secondary-color: #64748b;  /* Gris azulado */
+    --bg-body: #f8fafc;         /* Blanco roto */
+    --text-dark: #1e293b;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Header & Navbar */
+nav {
+    background: var(--white);
+    padding: 1.5rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    padding: 180px 10% 100px;
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* Cards & Sections */
+.section {
+    padding: 80px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.portfolio-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.btn-link {
+    margin-top: 1.5rem;
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 3rem 10%;
+    text-align: center;
+}
+
+/* Estado inicial de los elementos (ocultos y un poco más abajo) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado final cuando JS añade la clase 'visible' */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto de brillo suave para las tarjetas al aparecer */
+.portfolio-card.visible {
+    animation: glow 1.5s ease-in-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 0 rgba(37, 99, 235, 0); }
+    50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+    100% { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+}
+#cursor-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none; /* Importante para que no interfiera con los clics */
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    z-index: 9999;
+}
